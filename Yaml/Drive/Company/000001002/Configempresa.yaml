@@ -44,5 +44,5 @@
 	And I input "38,004.00" text in "UVT" field
 	And I select [CIUDAD] exact value from "Ciudad" drop-down list
 	And I click "Save and close" button
--
+
 
