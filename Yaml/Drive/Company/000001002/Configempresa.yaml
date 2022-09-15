@@ -26,7 +26,9 @@
         ИсходящийПараметр: "No" 
 
 ВложенныеСценарии:
-
+    - ВложенныеСценарии1: 
+        UIDВложенныйСценарий: "5521de62-2607-480a-87f8-08a2f5895524" 
+        ИмяСценария: "I Config Supplier" 
 
 ТекстСценария: |
 
@@ -44,5 +46,6 @@
 	And I input "38,004.00" text in "UVT" field
 	And I select [CIUDAD] exact value from "Ciudad" drop-down list
 	And I click "Save and close" button
+    And I Config Supplier
 
 
