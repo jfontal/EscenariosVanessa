@@ -33,13 +33,13 @@
     #language: en
 
     # Configuracion empresa
-	And In the command interface I select "Empresa" "Empresas"
-	Then "Empresas" window is opened
+	And In the command interface I select "Company" "Companies"
+	Then "Companies" window is opened
     And I go to line in "List" table
-	    | 'Descripción' |
+	    | 'Description' |
 	    | 'Prueba' |
 	And I select current line in "List" table
-	Then "* (Empresa)" window is opened
+	Then "* (Company)" window is opened
 	And I select [RESPONSABLE IVA] exact value from the drop-down list named "TipoEmpresa"
 	And I input "38,004.00" text in "UVT" field
 	And I select [CIUDAD] exact value from "Ciudad" drop-down list
