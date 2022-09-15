@@ -1,0 +1,113 @@
+﻿ТипФайла: "Сценарий"
+ДанныеСценария:
+    UID: "5521de62-2607-480a-87f8-08a2f5895524" 
+    Имя: "I Config Supplier"  
+    Код: "000001002" 
+    Проект: "Drive"
+    ФункцияСистемы: "Drive automation testing"
+    РазрешеноИспользоватьВДругихФункциях: "Yes"
+    UIDФункцияСистемы: "98999f57-13dc-11e8-aed1-005056a5c4e8"
+    ПрофильПользователя: "Administrator"
+    УровеньОтчета1: "Drive"
+    УровеньОтчета2: "Purchase"
+
+ПараметрыСценария: 
+    - ПараметрыСценария1: 
+        НомерСтроки: "1" 
+        Имя: "CONTRAPARTE"     
+        Значение: "ACEROS MAPA S.A.   " 
+        ТипПараметра: "Строка" 
+        ИсходящийПараметр: "No" 
+    - ПараметрыСценария2: 
+        НомерСтроки: "2" 
+        Имя: "TIPO DE EMPRESA"      
+        Значение: "Responsable de IVA / Persona Jurídica" 
+        ТипПараметра: "Строка" 
+        ИсходящийПараметр: "No" 
+    - ПараметрыСценария3: 
+        НомерСтроки: "3"
+        Имя: "CIUDAD PROVEEDOR"    
+        Значение: "BOGOTA, D.C."
+        ТипПараметра: "Строка"
+        ИсходящийПараметр: "No"
+ВложенныеСценарии:
+
+ТекстСценария: |
+
+  #language: en
+	
+		# Configuracion contraparte 
+			And In the command interface I select "CRM" "Customers"
+			Then "Customers" window is opened
+			And I go to line in "List" table
+				| 'Counterparty' |
+				| 	[CONTRAPARTE] 	| 
+			And I select current line in "List" table
+			Then "* (*)" window is opened
+			And I expand "Legal data" group
+		#Tipo de empresa
+			And I select [TIPO DE EMPRESA] exact value from "Tipo de empresa" drop-down list
+
+		# Ciudad
+			And I select [CIUDAD PROVEEDOR] exact value from "Ciudad" drop-down list 
+
+		# Configuracion Account libro mayo contraparte
+			And In this window I click command interface button "Counterparties GL accounts"
+			And I activate "Counterparty" field in "List" table
+			And I select current line in "List" table
+			Then "Counterparties GL accounts" window is opened
+		# Numeros CLM
+			And I click Select button of "Accounts payable" field
+			Then "Account" window is opened
+			And in the table "List" I click the button named "ListFind"
+			Then "Find" window is opened
+			And I input "220501" text in "F&ind" field
+			And I click "&Find" button
+			Then "Account" window is opened
+			And I go to line in "Hierarchy" table
+				| 'Value'               |
+				| 'Accounts payable' 		|
+			And I go to line in "List" table
+				| 'Code'   |
+				| '220501' |
+			And I select current line in "List" table
+
+			Then "* " window is opened
+
+			And I click Select button of "Advances paid" field
+			Then "Account" window is opened
+			And in the table "List" I click the button named "ListFind"
+			Then "Find" window is opened
+			And I input "133005" text in "F&ind" field
+			And I click "&Find" button
+			Then "Account" window is opened
+			And I go to line in "Hierarchy" table
+				| 'Value'               |
+				| 'Accounts receivable' |
+			And I go to line in "List" table
+				| 'Code'   | 
+				| '133005' |
+			And I select current line in "List" table
+			Then "* " window is opened
+
+			And I click Select button of "Discount received" field
+			Then "Account" window is opened
+			And in the table "List" I click the button named "ListFind"
+			Then "Find" window is opened
+			And I input "421040" text in "F&ind" field
+			And I click "&Find" button
+			Then "Account" window is opened
+			And I go to line in "Hierarchy" table
+				| 'Value'               |
+				| 'Other income' |
+			And I go to line in "List" table
+				| 'Code' |
+				| '421040' |
+			And I select current line in "List" table
+			Then "* " window is opened
+			
+			And I click "Save and close" button
+			And I wait "Counterperties GL accounts *" window closing in 20 seconds
+			And In this window I click command interface button "Main"
+			And I click "Save and close" button
+			And I wait " * (*)" window closing in 20 seconds
