@@ -26,6 +26,9 @@
 - ВложенныеСценарии4: 
     UIDВложенныйСценарий: ""77de75a1-8350-4b83-83fd-4cfda9c29f0f"" 
     ИмяСценария: "I Create invoice"
+- ВложенныеСценарии5: 
+    UIDВложенныйСценарий: ""91dec40c-5910-4c09-9843-ae209c720863"" 
+    ИмяСценария: "I Config PCLM"
    
 ТекстСценария: |
 
@@ -35,13 +38,13 @@
 
     And I Config Enterprise
     And I Config Supplier
-        CONTRAPARTE ='ACEROS MAPA S.A.   '
+        CONTRAPARTE = 'ACEROS MAPA S.A.   '
         TIPO DE EMPRESA = 'Responsable de IVA / Persona Jurídica'
         CIUDAD PROVEEDOR = 'BOGOTA, D.C.'
     And I Config Product
         PRODUCTO = 'RETAL HR'
         CATEGORIA= 'LAMINA CR'
-    #And I Config PCLM
+    And I Config PCLM
     And I Create invoice
         CONTRAPARTE = 'ACEROS MAPA S.A.   '
    # And I close TestClient main window
