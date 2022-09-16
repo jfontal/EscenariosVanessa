@@ -12,30 +12,6 @@
     УровеньОтчета2: "Purchase"
 		
 ПараметрыСценария: 
-   	- ПараметрыСценария1:
-        НомерСтроки: "1" 
-        Имя: "PCLM"      
-        Значение: "140501" 
-        ТипПараметра: "Строка" 
-        ИсходящийПараметр: "No" 
-    - ПараметрыСценария2:
-        НомерСтроки: "2" 
-        Имя: "DC"      
-        Значение: "622501" 
-        ТипПараметра: "Строка" 
-        ИсходящийПараметр: "No" 
-    - ПараметрыСценария3:
-        НомерСтроки: "3" 
-        Имя: "DIC"      
-        Значение: 	"240801" 
-        ТипПараметра: "Строка" 
-        ИсходящийПараметр: "No" 
-    - ПараметрыСценария4:
-        НомерСтроки: "4" 
-        Имя: "EDI"      
-        Значение: 	"240802" 
-        ТипПараметра: "Строка" 
-        ИсходящийПараметр: "No"
 
 ВложенныеСценарии:
 
@@ -43,19 +19,12 @@
 
 #language: en
 
-# Configuracion Cuenta de libro mayor
-	And In the command interface I select "Empresa" "Producto de las cuentas del libro mayor"
+# Configuracion * de libro mayor
+	And In the command interface I select "Company" "Product GL accounts"
  #Busca si existe o no 
-	If "List" table contains line Then
-		|	"Producto" |
+ 	If "List" table does not contain line Then
+		|	"Product"	|
 		|	[PRODUCTO]	|
-		And I go to line in "List" table
-			| 'Producto' |
-			| [PRODUCTO]  |
-		And I select current line in "List" table
-		Then "*" window is opened
-	EndIf
-		
 		And I click the button named "FormCreate"
 		Then "* (*)" window is opened
 		And I click Select button of "Categoría de producto" field
@@ -64,8 +33,8 @@
 			| 'Descripción'			|
 			| [CATEGORIA]	|
 		And I select current line in "List" table
-		And I click Select button of "Producto" field
-		Then "Productos" window is opened
+		And I click Select button of "Product" field
+		Then "Products" window is opened
 		And I move one level down in "List" table
 		And I move one level up in "List" table
 		And I move one level down in "List" table
@@ -74,63 +43,86 @@
 			| [PRODUCTO] 	|
 		And I select current line in "List" table
 		Then "* (*)" window is opened
+		
+		And I click "Save and close" button 
+	EndIf
+
+	And I go to line in "List" table
+		| 'Product'	|
+		| [PRODUCTO]	|
+	And I select current line in "List" table
+	Then "*" window is opened
+
+
 
 
 	# Numeros CLM Productos
 
 	#PCLM
-	And I click Select button of "Producto de la cuenta del libro mayor" field
-	Then "Cuenta" window is opened
+	And I click Select button of "Product GL account" field
+	Then "*" window is opened
 	And in the table "List" I click the button named "ListFind"
 	Then "Find" window is opened
 	And I input [PCLM] text in "F&ind" field
 	And I click "&Find" button
-	Then "Cuenta" window is opened
+	Then "*" window is opened
+	And I go to line in "Hierarchy" table
+		| 'Value'               |
+		| 'Inventories' 				|
 	And I go to line in "List" table
-		| 'Código' |
+		| 'code' |
 		| [PCLM] |
 	And I select current line in "List" table
 	Then "*" window is opened
 
 	#DC
-	And I click Select button of "Devolución de la compra" field
-	Then "Cuenta" window is opened
+	And I click Select button of "Purchase return" field
+	Then "*" window is opened
 	And in the table "List" I click the button named "ListFind"
 	Then "Find" window is opened
 	And I input 	[DC] text in "F&ind" field
 	And I click "&Find" button
-	Then "Cuenta" window is opened
+	Then "*" window is opened
+	And I go to line in "Hierarchy" table
+		| 'Value'               |
+		| 'Cost of sales' 				|
 	And I go to line in "List" table
-		| 'Código' |
+		| 'code' |
 		| 	[DC] 	|
 	And I select current line in "List" table
 	Then "*" window is opened
 
 	#DIC
 	And I click Select button of "Devolucion IVA compras" field
-	Then "Cuenta" window is opened
+	Then "*" window is opened
 	And in the table "List" I click the button named "ListFind"
 	Then "Find" window is opened
 	And I input [DIC] text in "F&ind" field
 	And I click "&Find" button
-	Then "Cuenta" window is opened
+	Then "*" window is opened
+	And I go to line in "Hierarchy" table
+		| 'Value'               |
+		| 'Taxes' 			|
 	And I go to line in "List" table
-		| 'Código' |
+		| 'code' |
 		| [DIC] |
 	And I select current line in "List" table
 	Then "*" window is opened
 
 	#EDI
-	And I click Select button of "Entrada del IVA" field
-	Then "Cuenta" window is opened
+	And I click Select button of "VAT Input" field
+	Then "*" window is opened
 	And in the table "List" I click the button named "ListFind"
 	Then "Find" window is opened
 	And I input [EDI] text in "F&ind" field
 	And I click "&Find" button
-	Then "Cuenta" window is opened
+	Then "*" window is opened
+	And I go to line in "Hierarchy" table
+		| 'Value'               |
+		| 'Taxes' 			|
 	And I go to line in "List" table
-		| 'Código' |
-		| [EDI] |
+		| 'code' |
+		| [EDI]		|
 	And I select current line in "List" table
 	Then "*" window is opened
 
