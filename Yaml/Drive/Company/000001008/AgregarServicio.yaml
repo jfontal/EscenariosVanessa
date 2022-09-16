@@ -1,8 +1,8 @@
 ТипФайла: "Сценарий"
 ДанныеСценария:
-    UID: "b89f345c-0e48-4a61-aabe-880ebbd0295e"
-    Имя: "I add Product Service"  
-    Код: "000001007" 
+    UID: "972ea80f-93e2-4269-a0f7-e200a627d81a"
+    Имя: "I add Service"  
+    Код: "000001008" 
     Проект: "Drive"
     ФункцияСистемы: "Drive automation testing"
     РазрешеноИспользоватьВДругихФункциях: "Yes"
@@ -20,17 +20,17 @@
   #language: en
 
   # Agregar Productos
-    And in the table "Inventory" I click the button named "InventoryAdd"
-    And I click choice button of "Product" attribute in "Inventory" table
+	  And I move to "Services" tab
+	  And in the table "Expenses" I click the button named "ExpensesAdd"
+    And I click choice button of "Service" attribute in "Expenses" table
     Then "Products" window is opened
     And I go to line in "List" table
       | 'Description'  |
       |   [PRODUCTO]  |
     And I select current line in "List" table
-    And I activate field named "InventoryQuantity" in "Inventory" table
-    And I select current line in "Inventory" table
-    And I input [CANTIDAD] text in the field named "InventoryQuantity" of "Inventory" table
-    And I activate field named "InventoryPrice" in "Inventory" table
-    And I input [PRECIO] text in the field named "InventoryPrice" of "Inventory" table
-    And I finish line editing in "Inventory" table
-
+    And I activate field named "ExpensesQuantity" in "Expenses" table
+    And I select current line in "Expenses" table
+    And I input [CANTIDAD] text in the field named "ExpensesQuantity" of "Expenses" table
+    And I activate field named "ExpencesPrice" in "Expenses" table
+    And I input [PRECIO] text in the field named "ExpencesPrice" of "Expenses" table
+    And I finish line editing in "Expenses" table

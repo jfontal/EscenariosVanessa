@@ -2,7 +2,7 @@
 ДанныеСценария:
     UID: "837d7bf0-9d73-405d-84f8-7edcfd32f237"  #UUID
     Имя: "I Change Credit Note"  #Nombre del escenario
-    Код: "000001007" #Numero unico del escenario
+    Код: "000001009" #Numero unico del escenario
     Проект: "Drive"
     ФункцияСистемы: "Drive automation testing"
     РазрешеноИспользоватьВДругихФункциях: "Yes" #Permiso de uso de otras Funciones
@@ -33,17 +33,17 @@
 
     And I move to "Retenciones" tab
     And I click "Save" button
-    Then "Debit notes * fechado * (no enviado)" window is opened
+    Then "Debit note * dated * (*)" window is opened
     And I click "Post" button
-    Then "Debit notes * fechado *" window is opened
-    And I click "Entradas contables" button
-    Then "Entradas contables" window is opened
+    Then "Debit note * dated *" window is opened
+    And I click "Accounting Entries" button
+    Then "Accounting Entries" window is opened
     And I click "Approve and close" button
-    Then "Debit notes * fechado *" window is opened
+    Then "Debit note * dated *" window is opened
     And I click "Post and close" button
-    And I wait "Debit notes * fechado *" window closing in 20 seconds
+    And I wait "Debit note * dated *" window closing in 20 seconds
 
 
     And I click "Post and close" button
-    And I wait "Supplier invoices * fechado*" window closing in 20 seconds
+    And I wait "Supplier invoices * dated *" window closing in 20 seconds
 

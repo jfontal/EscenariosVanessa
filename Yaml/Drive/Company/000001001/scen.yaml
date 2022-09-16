@@ -28,13 +28,16 @@
     ИмяСценария: "I Create invoice"
 - ВложенныеСценарии5: 
     UIDВложенныйСценарий: "b89f345c-0e48-4a61-aabe-880ebbd0295e" 
-    ИмяСценария: "I add Product Service"
+    ИмяСценария: "I add Product"
 - ВложенныеСценарии6: 
     UIDВложенныйСценарий: "91dec40c-5910-4c09-9843-ae209c720863" 
     ИмяСценария: "I Config PCLM"
 - ВложенныеСценарии7: 
     UIDВложенныйСценарий: "837d7bf0-9d73-405d-84f8-7edcfd32f237" 
     ИмяСценария: "I Change Credit Note"
+- ВложенныеСценарии8: 
+    UIDВложенныйСценарий: "972ea80f-93e2-4269-a0f7-e200a627d81a" 
+    ИмяСценария: "I add Service"
    
 ТекстСценария: |
 
@@ -43,6 +46,7 @@
     And I set "Administrator" synonym to the current TestClient
 
     And I Config Enterprise
+        Empresa = 'Prueba'
         RESPONSABLE IVA = 'Responsable de IVA / Persona Jurídica'
         CIUDAD = 'BOGOTA, D.C.'
     And I Config Supplier
@@ -61,8 +65,8 @@
         EDI = '240802'
     And I Create invoice
         CONTRAPARTE = 'ACEROS MAPA S.A.   '
-    And I add Product Service
-        PRODUCTO = 'RETAL HR'
+    And I add Service
+        PRODUCTO = 'ALUM 8mm 4x8'
         CANTIDAD = '10.000'
         PRECIO = '150,000.00'
     And I Change Credit Note

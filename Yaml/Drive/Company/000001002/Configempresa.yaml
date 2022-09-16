@@ -26,7 +26,7 @@
 	Then "Companies" window is opened
     And I go to line in "List" table
 	    | 'Description' |
-	    | 'Prueba' |
+	    | [Empresa] |
 	And I select current line in "List" table
 	Then "* (Company)" window is opened
 	And I select [RESPONSABLE IVA] exact value from the drop-down list named "TipoEmpresa"

@@ -1,0 +1,37 @@
+ТипФайла: "Сценарий"
+ДанныеСценария:
+    UID: "b89f345c-0e48-4a61-aabe-880ebbd0295e"
+    Имя: "I add Product"  
+    Код: "000001007" 
+    Проект: "Drive"
+    ФункцияСистемы: "Drive automation testing"
+    РазрешеноИспользоватьВДругихФункциях: "Yes"
+    UIDФункцияСистемы: "98999f57-13dc-11e8-aed1-005056a5c4e8"
+    ПрофильПользователя: "Gerencia"
+    УровеньОтчета1: "Drive"
+    УровеньОтчета2: "Purchase"
+
+ПараметрыСценария: 
+
+ВложенныеСценарии:
+
+ТекстСценария: |
+
+  #language: en
+
+  # Agregar Productos
+    And I move to "Goods" tab
+    And in the table "Inventory" I click the button named "InventoryAdd"
+    And I click choice button of "Product" attribute in "Inventory" table
+    Then "Products" window is opened
+    And I go to line in "List" table
+      | 'Description'  |
+      |   [PRODUCTO]  |
+    And I select current line in "List" table
+    And I activate field named "InventoryQuantity" in "Inventory" table
+    And I select current line in "Inventory" table
+    And I input [CANTIDAD] text in the field named "InventoryQuantity" of "Inventory" table
+    And I activate field named "InventoryPrice" in "Inventory" table
+    And I input [PRECIO] text in the field named "InventoryPrice" of "Inventory" table
+    And I finish line editing in "Inventory" table
+
