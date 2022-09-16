@@ -54,8 +54,8 @@
 			| [PRODUCTO]  |
 		And I select current line in "List" table
 		Then "*" window is opened
-
-	Else
+	EndIf
+		
 		And I click the button named "FormCreate"
 		Then "* (*)" window is opened
 		And I click Select button of "Categoría de producto" field
