@@ -5,7 +5,7 @@
     UIDСценария: "01547771-5c0d-40d2-8d71-02ee20f082cf"
     Имя: "001_Company_tests"
     ЭталоннаяБазаИмя: "EtalonDrive"
-    ПрофильПользователя: "Administrator"
+    ПрофильПользователя: "Administrador"
     СценарийНаименование: "001_Company_tests"
     ИдентификаторБазы: "EtalonDrive"
     ПараметрыЗапуска: ""

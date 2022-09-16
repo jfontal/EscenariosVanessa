@@ -17,6 +17,12 @@
 - ВложенныеСценарии1:
     UIDВложенныйСценарий: "50352278-e476-4617-9c69-2babe0b5a366" 
     ИмяСценария: "I Config Enterprise" 
+- ВложенныеСценарии2: 
+    UIDВложенныйСценарий: "5521de62-2607-480a-87f8-08a2f5895524" 
+    ИмяСценария: "I Config Supplier"
+- ВложенныеСценарии3: 
+    UIDВложенныйСценарий: "1ab1e62b-c9b9-45c1-a3ec-bfdf3c65ba5b" 
+    ИмяСценария: "I Config Product"
    
 ТекстСценария: |
 
@@ -25,5 +31,7 @@
     And I set "Administrator" synonym to the current TestClient
 
     And I Config Enterprise
-
-    And I close TestClient main window
+    And I Config Supplier
+    And I Config Product
+    
+   # And I close TestClient main window
